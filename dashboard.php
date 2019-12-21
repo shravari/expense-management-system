@@ -1,7 +1,7 @@
 <?php 
-
+  session_start();
 	require_once('header.php');
-
+  if (isset($_SESSION['user_id']) &&  $_SESSION['user_id']!=null) {
  ?>
 
   <!-- Begin Page Content -->
@@ -93,11 +93,13 @@
 </div>
 
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-
  <?php 
+  require_once('footer.php');
+  }
+else{
+  echo "login";
+  require_once('footer.php');
 
-	require_once('footer.php');
-
+}
  ?>
+

@@ -57,10 +57,11 @@
                 <div class="form-group">
                   <input type="file" class="form-control " id="exampleInputFile" name="profile_pic" placeholder="Browse profile picture">
                 </div>
-                <p id="pTag"></p>
+                <p id="pTag" class="small"></p>
                 <input type="submit" name="" class="btn btn-primary btn-user btn-block" value="Register Account"> 
               </form>
               <hr>
+              <p id="erroru" class="text-center"></p>
               <div class="text-center">
                 <a class="small" href="forgot-password.html">Forgot Password?</a>
               </div>
@@ -78,17 +79,15 @@
   <!-- Bootstrap core JavaScript-->
   <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
-  // var currentUrl = $(location).attr('href');  
-  //   if (currentUrl.match(/error=1/g)) {
-  //      $('#erroru').html('User already exists, please login to access the page');
-  //       $('#erroru').css('color','red');
-  //       $('#erroru').css('text-algin','center');
-  //       window.history.pushState({}, "Hide", "http://localhost/shravari/mini-project/register.html");
-    
-  //   }
-  //   else{
-  //     console.log('no error');
-  //   }
+  var currentUrl = $(location).attr('href');  
+    if (currentUrl.match(/error=1/g)) {
+       $('#erroru').html('User already exists, please <a href="login.html">login</a> to access the page');
+        $('#erroru').css('color','red');
+        $('#erroru').css('text-algin','center');
+        // window.location.assign('http://localhost/shravari/project1/register.html'); 
+        window.history.pushState({}, "Hide", "http://localhost/shravari/project1/register.html");
+
+    }
 
   function validate(){
 
