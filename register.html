@@ -34,7 +34,7 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
               </div>
-              <form class="user" method="post" onsubmit="return validate();">
+              <form class="user" method="post" action="crud/insertUser.php" enctype="multipart/form-data" onsubmit="return validate();">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="form-control form-control-user" id="exampleFirstName" name="f_name" placeholder="First Name">
@@ -51,12 +51,13 @@
                     <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password">
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
+                    <input type="password" class="form-control form-control-user" onkeyup="password_match();" id="exampleRepeatPassword" placeholder="Repeat Password">
                   </div>
                 </div>
                 <div class="form-group">
                   <input type="file" class="form-control " id="exampleInputFile" name="profile_pic" placeholder="Browse profile picture">
                 </div>
+                <p id="pTag"></p>
                 <input type="submit" name="" class="btn btn-primary btn-user btn-block" value="Register Account"> 
               </form>
               <hr>
@@ -77,20 +78,89 @@
   <!-- Bootstrap core JavaScript-->
   <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
-  function validate(form){
-    console.log('hi');
+  // var currentUrl = $(location).attr('href');  
+  //   if (currentUrl.match(/error=1/g)) {
+  //      $('#erroru').html('User already exists, please login to access the page');
+  //       $('#erroru').css('color','red');
+  //       $('#erroru').css('text-algin','center');
+  //       window.history.pushState({}, "Hide", "http://localhost/shravari/mini-project/register.html");
+    
+  //   }
+  //   else{
+  //     console.log('no error');
+  //   }
+
+  function validate(){
+
+    // Storing all the input feild values in respective variable
     var fname = $('input[name="f_name"]').val();
     var lname = $('input[name="l_name"]').val();
     var email = $('input[name="email"]').val();
     var password = $('input[name="password"]').val();
     var profile_pic = $('input[name="profile_pic"]').val();
     var con_password = $('#exampleRepeatPassword').val();
-    console.log(fname);
+
+    //Setting p tags color to red as we'll be sending all validation errors in this p tag
+    $('#pTag').css('color','red');
+
+    //Checking if the necessary input feild are empty or not
     if (!(fname && lname && email && password) ) {
-      
+      if(!fname){
+        $('input[name="f_name"]').css('border', '1px solid red');
+      }
+      if(!lname){
+        $('input[name="l_name"]').css('border', '1px solid red');
+      }
+       if(!email){
+        $('input[name="email"]').css('border', '1px solid red');
+      }
+       if(!password){
+        $('input[name="password"]').css('border', '1px solid red');
+      }
+
+      //if required input feild are empty then displaying an error message 
+      $('#pTag').html('feilds marked above are mandatory..');
+      //and returning false so that the form won't be submited
+      return false;
     }
-    return false;
+
+    //Validating email using regular expression
+    if(!email.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/g)){
+      $('#pTag').html('Please enter valid email address');
+      return false;
+    }else{
+      $('#pTag').html('');
+    }
+
+
+    //Validating password using regular expression
+    // if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{6,}$/g)) {
+    //   $('#pTag').html('Password must contain atleast 1 lower case, 1 uppercase , 1 numeric character ,1 special character and 6 character long');
+    //   return false;
+    // }else{
+    //   $('#pTag').html('');
+    // }
+
+    //returning true it all above statment get executed without any error
+    return true;
   }
+
+
+  //Function to check weather both the passwords match(the function)
+   function password_match(){
+      var inputPassword = $('#exampleInputPassword').val();
+      var confirmPassword = $('#exampleRepeatPassword').val();
+      if (inputPassword != confirmPassword) {
+          $('#pTag').html("passwords don't match");
+          $('#pTag').css('color','red');
+          $('input[type=submit]').attr('disabled',true);
+      }else{
+          $('#pTag').html("");
+          $('input[type=submit]').attr('disabled',false);
+
+      }
+
+    }
 
 </script>
 </body>
