@@ -24,20 +24,20 @@
                     <input type="date" class="w-100 form-control" name="dateinc">
                   </div>
                   <div class="col-sm-6">
-                    <input type="number" class="w-100 form-control" name="amount" placeholder="Enter the amount you were paid">
+                    <input type="number" class="w-100 form-control" name="amount" placeholder="Enter Expense amount">
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <div class="col-sm-12 mb-3 mb-sm-0">
-                    <textarea class="w-100 form-control" name="source" rows="2" placeholder="Enter the source of payment"></textarea>
+                    <textarea class="w-100 form-control" name="purpose" rows="2" placeholder="Reason for this expenditure.."></textarea>
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id'] ?>">
                   </div>
                 </div>
 
                	<div class="form-group row">
                		<div class="col-sm-12 mb-3 mb-sm-0">
-               			 <button type="submit" class="btn btn-primary form-control">Save My Income</button>
+               			 <button type="submit" class="btn btn-primary form-control">Save My Expense</button>
                		</div>
                	</div>
 				</div>
@@ -57,17 +57,17 @@
 		e.preventDefault();
 		var dateinc = $("input[name='dateinc']").val();
 		var amount = $("input[name='amount']").val();
-		var source = $("textarea[name='source']").val();
+		var purpose = $("textarea[name='purpose']").val();
 		var user_id = $("input[name='user_id']").val();
 
 		$.ajax({
 			
-			url : 'crud/insert_income.php',
+			url : 'crud/insert_expense.php',
 			method : 'post',
-			data : 'user_id='+user_id+'&& dateinc='+dateinc+'+&& amount='+amount+'&& source='+source,
+			data : 'user_id='+user_id+'&& dateinc='+dateinc+'+&& amount='+amount+'&& purpose='+purpose,
 			success: function(res){
 				alert(res);
-				window.location.assign('addCredits.php');
+				window.location.assign('addDebits.php');
 			}
 		});
 	});

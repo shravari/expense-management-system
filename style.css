@@ -1,0 +1,12 @@
+.profile_pic{
+	width: 200px;
+	border: 2px solid #5CA6DA;
+	box-shadow: 5px 10px 8px #B5D0E3;
+	height: 200px;
+}
+
+
+.editUser input, .editUser textarea{
+	border:none;
+	border-bottom:1px solid #5CA6DA;
+}
