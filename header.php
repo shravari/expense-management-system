@@ -14,6 +14,7 @@
   <!-- Custom fonts for this template-->
   <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -62,8 +63,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Income Components:</h6>
-            <a class="collapse-item" href="buttons.html">Credits</a>
-            <a class="collapse-item" href="cards.html">View all Credits</a>
+            <a class="collapse-item" href="addCredits.php">Add Credits</a>
+            <a class="collapse-item" href="crud/view_income.php">View all Credits</a>
           </div>
         </div>
       </li>
@@ -77,8 +78,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Expense Components:</h6>
-            <a class="collapse-item" href="utilities-color.html">Debits</a>
-            <a class="collapse-item" href="utilities-border.html">View all Debits</a>
+            <a class="collapse-item" href="addDebits.php">Add Debits</a>
+            <a class="collapse-item" href="crud/view_income.php">View all Debits</a>
           </div>
         </div>
       </li>
@@ -157,7 +158,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="editUser.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>

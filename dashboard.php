@@ -92,7 +92,9 @@
 </div>
 </div>
 
-
+  <script src="js/Chart.min.js"></script>
+  <script src="js/chart-bar-demo.js"></script>
+  <script src="js/chart-pie-demo.js"></script>
  <?php 
   require_once('footer.php');
   }

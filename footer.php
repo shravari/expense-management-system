@@ -43,9 +43,7 @@
 <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/jquery.easing.min.js"></script>
   <script src="js/sb-admin-2.min.js"></script>
-  <script src="js/Chart.min.js"></script>
-  <script src="js/chart-bar-demo.js"></script>
-  <script src="js/chart-pie-demo.js"></script>
+
 
 </body>
 
