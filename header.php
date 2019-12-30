@@ -90,7 +90,7 @@
       <hr class="sidebar-divider">
       <!-- Nav Item - Savings -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="savings.php">
           <i class="fas fa-piggy-bank"></i> 
           <span>Savings</span></a>
       </li>
