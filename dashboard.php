@@ -91,7 +91,7 @@
             </div>
 </div>
 </div>
-
+  <script src="js/jquery.min.js"></script>
   <script src="js/Chart.min.js"></script>
   <script src="js/chart-bar-demo.js"></script>
   <script src="js/chart-pie-demo.js"></script>
@@ -99,7 +99,7 @@
   require_once('footer.php');
   }
 else{
-  echo "login";
+  echo "<a href='login.html'>Login</a>";
   require_once('footer.php');
 
 }

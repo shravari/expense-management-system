@@ -145,7 +145,8 @@ $query = mysqli_query($connect, $select);
         method:'get',
         dataType :'json',
         success:function(res){
-          $('input[name="dateinc"]').val(res.income_date);
+          alert(res);
+          $('input[name="dateinc"]').val(res.expense_date);
           $('input[name="amount"]').val(res.amount);
           $('textarea[name="purpose"]').val(res.purpose);
           $('input[name="id"]').val(res.id);
