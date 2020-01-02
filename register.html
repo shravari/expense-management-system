@@ -103,7 +103,7 @@
     $('#pTag').css('color','red');
 
     //Checking if the necessary input feild are empty or not
-    if (!(fname && lname && email && password) ) {
+    if (!(fname || lname || email || password) ) {
       if(!fname){
         $('input[name="f_name"]').css('border', '1px solid red');
       }

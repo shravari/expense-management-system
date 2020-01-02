@@ -17,7 +17,7 @@
 				<div class="card-header">
 					<h3><div class="card-title">Add Expense</div></h3>
 				</div>
-				<form class="editUser">
+				<form class="editUser" onsubmit="return validate();">
 				<div class="card-body">
 					<div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
@@ -32,6 +32,7 @@
                   <div class="col-sm-12 mb-3 mb-sm-0">
                     <textarea class="w-100 form-control" name="purpose" rows="2" placeholder="Reason for this expenditure.."></textarea>
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id'] ?>">
+                    <p id="pTag"></p>
                   </div>
                 </div>
 
@@ -54,6 +55,35 @@
 
 <script type="text/javascript">
 	$('form').on('submit', function(e){
+
+		var debitDate = $('input[name="dateinc"]').val();
+    	var amount = $('input[name="amount"]').val();
+    	var description = $('textarea[name="purpose"]').val();
+
+    	if (!debitDate || !amount || !description) {
+    		  if(!debitDate){
+		        $('input[name="dateinc"]').css('border', '1px solid red');
+		      }
+		      else{
+		        $('input[name="dateinc"]').css('border', 'none');
+		      }
+		     if(!amount){
+		        $('input[name="amount"]').css('border', '1px solid red');
+		      }
+		      else{
+		        $('input[name="amount"]').css('border', 'none');
+		      }
+		     if(!description){
+		        $('textarea[name="purpose"]').css('border', '1px solid red');
+		      }
+		      else{
+		        $('textarea[name="purpose"]').css('border', 'none');
+		      }
+     		 $('#pTag').html('feilds marked above are mandatory..');
+     		 $('#pTag').css('color','red');
+		     return false;
+    	}
+		else{
 		e.preventDefault();
 		var dateinc = $("input[name='dateinc']").val();
 		var amount = $("input[name='amount']").val();
@@ -70,7 +100,31 @@
 				window.location.assign('addDebits.php');
 			}
 		});
+	}
 	});
+
+	function validate(){
+    	var debitDate = $('input[name="dateinc"]').val();
+    	var amount = $('input[name="amount"]').val();
+    	var description = $('textarea[name="purpose"]').val();
+
+    	if (!debitDate && !amount && !description) {
+    		 if(!debitDate){
+		        $('input[name="dateinc"]').css('border', '1px solid red');
+		      }
+		     if(!amount){
+		        $('input[name="amount"]').css('border', '1px solid red');
+		      }
+		     if(!description){
+		        $('textarea[name="purpose"]').css('border', '1px solid red');
+		      }
+     		 $('#pTag').html('feilds marked above are mandatory..');
+     		 $('#pTag').css('color','red');
+		     return false;
+    	}
+    	// return true;
+
+	}
 </script>
 
  <?php 

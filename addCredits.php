@@ -32,6 +32,7 @@
                   <div class="col-sm-12 mb-3 mb-sm-0">
                     <textarea class="w-100 form-control" name="source" rows="2" placeholder="Enter the source of payment"></textarea>
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id'] ?>">
+                    <p id="pTag"></p>
                   </div>
                 </div>
 
@@ -54,6 +55,34 @@
 
 <script type="text/javascript">
 	$('form').on('submit', function(e){
+
+		var debitDate = $('input[name="dateinc"]').val();
+    	var amount = $('input[name="amount"]').val();
+    	var description = $('textarea[name="source"]').val();
+    	if (!debitDate || !amount || !description) {
+    		 if(!debitDate){
+		        $('input[name="dateinc"]').css('border', '1px solid red');
+		      }
+		      else{
+		        $('input[name="dateinc"]').css('border', 'none');
+		      }
+		     if(!amount){
+		        $('input[name="amount"]').css('border', '1px solid red');
+		      }
+		      else{
+		        $('input[name="amount"]').css('border', 'none');
+		      }
+		     if(!description){
+		        $('textarea[name="source"]').css('border', '1px solid red');
+		      }
+		      else{
+		        $('textarea[name="source"]').css('border', 'none');
+		      }
+     		 $('#pTag').html('feilds marked above are mandatory..');
+     		 $('#pTag').css('color','red');
+		     return false;
+    	}
+		else{
 		e.preventDefault();
 		var dateinc = $("input[name='dateinc']").val();
 		var amount = $("input[name='amount']").val();
@@ -70,6 +99,7 @@
 				window.location.assign('addCredits.php');
 			}
 		});
+	}
 	});
 </script>
 
