@@ -1,7 +1,7 @@
 <?php 
   session_start();
-	require_once('header.php');
   if (isset($_SESSION['user_id']) &&  $_SESSION['user_id']!=null) {
+	require_once('header.php');
  ?>
 
   <!-- Begin Page Content -->
@@ -99,9 +99,7 @@
   require_once('footer.php');
   }
 else{
-  echo "<a href='login.html'>Login</a>";
-  require_once('footer.php');
-
+  header('Location:index.html');
 }
  ?>
 

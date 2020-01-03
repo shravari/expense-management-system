@@ -1,12 +1,12 @@
 <?php 
 session_start();
-
-require_once('header.php');
-require_once('crud/config.php');
   if (isset($_SESSION['user_id']) &&  $_SESSION['user_id']!=null) {
-    $user_id = $_SESSION['user_id'];
-$select = "SELECT * FROM exp_mng_expense where user_id='$user_id'";
-$query = mysqli_query($connect, $select);
+
+    require_once('header.php');
+    require_once('crud/config.php');
+        $user_id = $_SESSION['user_id'];
+    $select = "SELECT * FROM exp_mng_expense where user_id='$user_id'";
+    $query = mysqli_query($connect, $select);
 
  ?>
  
@@ -161,8 +161,8 @@ $query = mysqli_query($connect, $select);
  <?php 
   }
 else{
-  echo "login";
-  require_once('footer.php');
+  header('Location:index.html');
+
 
 }
 

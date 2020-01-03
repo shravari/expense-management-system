@@ -1,10 +1,9 @@
 <?php 
 session_start();
-
-require_once('header.php');
-require_once('crud/config.php');
   if (isset($_SESSION['user_id']) &&  $_SESSION['user_id']!=null) {
-    $user_id = $_SESSION['user_id'];
+    require_once('header.php');
+    require_once('crud/config.php');
+        $user_id = $_SESSION['user_id'];
 
  ?>
  
@@ -125,8 +124,8 @@ require_once('crud/config.php');
  <?php 
   }
 else{
-  echo "login.html";
-  require_once('footer.php');
+  header('Location:index.html');
+
 
 }
 
