@@ -1,0 +1,33 @@
+.profile_pic{
+	width: 200px;
+	border: 2px solid #5CA6DA;
+	box-shadow: 5px 10px 8px #B5D0E3;
+	height: 200px;
+}
+
+
+.editUser input, .editUser textarea{
+	border:none;
+	border-bottom:1px solid #5CA6DA;
+}
+
+.index_page{
+	background-color: #A153F3;
+	margin: 80px;
+	color: white;
+	padding: 80px;
+	border-radius: 25px;
+	box-shadow: 5px 10px 18px grey;
+}
+.index_page h1{
+	font-size: 70px;
+	text-decoration: underline;
+	margin-bottom: 20px;
+	text-decoration-style:dotted;
+}
+.index_page a{
+	color: white;
+}
+.index_page a:hover{
+	color: black;
+}
